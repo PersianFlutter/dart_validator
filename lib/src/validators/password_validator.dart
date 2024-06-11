@@ -1,5 +1,4 @@
 import 'package:dart_validator/dart_validator.dart';
-import 'package:dart_validator/src/validator_messages.dart';
 
 class PasswordValidator extends FormValidator {
   final int minLength = 6;

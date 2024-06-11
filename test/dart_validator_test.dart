@@ -3,7 +3,7 @@ import 'package:dart_validator/src/validators/alpha_dash_validator.dart';
 import 'package:dart_validator/src/validators/alpha_numeric_dash_validator.dart';
 import 'package:dart_validator/src/validators/alpha_numeric_validator.dart';
 import 'package:dart_validator/src/validators/alphabetic_validator.dart';
-import 'package:dart_validator/src/validators/custom_validation.dart';
+import 'package:dart_validator/src/validators/custom_validator.dart';
 import 'package:dart_validator/src/validators/double_validator.dart';
 import 'package:dart_validator/src/validators/email_validator.dart';
 import 'package:dart_validator/src/validators/greater_validator.dart';
@@ -333,17 +333,17 @@ void main() {
   });
   group('CustomValidation', () {
     test('empty string validation', () {
-      var validator = CustomValidation(RegExp(r'.*'));
+      var validator = CustomValidator(RegExp(r'.*'));
       expect(validator.validate(''), equals(null));
     });
 
     test('null string validation', () {
-      var validator = CustomValidation(RegExp(r'.*'));
+      var validator = CustomValidator(RegExp(r'.*'));
       expect(validator.validate(null), equals(null));
     });
 
     test('custom regex validation', () {
-      var validator = CustomValidation(RegExp(r'^[a-z]+$'),
+      var validator = CustomValidator(RegExp(r'^[a-z]+$'),
           errorMessage: 'Only lowercase letters are allowed');
       expect(validator.validate('abc'), equals(null));
       expect(validator.validate('ABC'),
@@ -351,9 +351,9 @@ void main() {
     });
 
     test('custom regex validation with next validator', () {
-      var validator = CustomValidation(RegExp(r'^[a-z]+$'),
+      var validator = CustomValidator(RegExp(r'^[a-z]+$'),
           errorMessage: 'Only lowercase letters are allowed',
-          nextValidator: CustomValidation(RegExp(r'^[a-z]{3}$'),
+          nextValidator: CustomValidator(RegExp(r'^[a-z]{3}$'),
               errorMessage: 'Only 3 letters are allowed'));
       expect(validator.validate('abc'), equals(null));
       expect(validator.validate('abcd'), equals('Only 3 letters are allowed'));

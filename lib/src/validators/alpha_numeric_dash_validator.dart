@@ -1,5 +1,4 @@
 import 'package:dart_validator/dart_validator.dart';
-import 'package:dart_validator/src/validator_messages.dart';
 
 class AlphaNumericDashValidator extends FormValidator {
   AlphaNumericDashValidator({super.nextValidator});
