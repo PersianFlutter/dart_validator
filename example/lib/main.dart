@@ -55,6 +55,20 @@ class _MyHomePageState extends State<MyHomePage> {
                       decoration: const InputDecoration(labelText: 'User Name'),
                     ),
                     TextFormField(
+                      validator: FormValidation.typeValidate([
+                        PasswordValidator,
+                        AlphaDashValidator,
+                      ]),
+                      decoration: const InputDecoration(labelText: 'User Name'),
+                    ),
+                    TextFormField(
+                      validator: FormValidation.dynamicValidate([
+                        LengthValidator(min: 8, max: 20),
+                        AlphaDashValidator,
+                      ]),
+                      decoration: const InputDecoration(labelText: 'User Name'),
+                    ),
+                    TextFormField(
                       validator: FormValidation.validate([
                         LengthValidator(min: 6),
                         PasswordValidator(),
