@@ -17,4 +17,5 @@ export 'src/validators/length_validator.dart';
 export 'src/validators/mandatory_validator.dart';
 export 'src/validators/numeric_validator.dart';
 export 'src/validators/password_validator.dart';
+export 'src/validators/url_validator.dart';
 export 'src/validator_messages.dart';

@@ -5,12 +5,12 @@ class PasswordValidator extends FormValidator {
   final bool hasUpperCase;
   final bool hasLowerCase;
   final bool hasDigit;
-  final bool specialChars;
+  final bool hasSpecialChars;
   PasswordValidator(
       {this.hasUpperCase = true,
       this.hasLowerCase = true,
       this.hasDigit = true,
-      this.specialChars = true,
+      this.hasSpecialChars = true,
       super.nextValidator});
 
   @override
@@ -28,7 +28,8 @@ class PasswordValidator extends FormValidator {
       if (hasDigit && !value.contains(RegExp(r'[0-9]'))) {
         return ValidatorMessages.passwordNumberError;
       }
-      if (specialChars && !value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
+      if (hasSpecialChars &&
+          !value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
         return ValidatorMessages.passwordSpecialCharError;
       }
     }
